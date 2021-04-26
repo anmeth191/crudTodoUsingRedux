@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import DisplayTasks from './DisplayTasks';
 import DetailTask from './DetailTask';
-
+import AddTask from './AddTask';
 
 class MainComponent extends React.Component{
 
@@ -16,6 +16,7 @@ class MainComponent extends React.Component{
                  <Switch>
                  <Route exact path="/" component={DisplayTasks} />  
                  <Route path="/task/:id" component={DetailTask} />
+                 <Route path="/addTask" component={AddTask} />
                  </Switch>   
            </div>
              </Router>
