@@ -49,7 +49,7 @@ return(
 const sendPropsToReducer = (dispatch) =>{
 
     return {
-         addTask: (task , creationDate , dueDate , status, selectStatus )=>{ dispatch({type:'ADD_TASK' , task , creationDate , dueDate , status}) }
+         addTask: (task , creationDate , dueDate , status)=>{ dispatch({type:'ADD_TASK' , task , creationDate , dueDate , status}) }
     }
 }
 export default connect(null,sendPropsToReducer)(AddTask);

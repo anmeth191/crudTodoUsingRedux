@@ -8,13 +8,21 @@ const initialSate = {
 
 
 const crudReducer = (state = initialSate , action)=>{
-    console.log(action)
+    
     if(action.type === 'ADD_TASK'){
        
         let newTask = state.task.concat({id:state.task.length + 1 , nameTask:action.task , creationDate:action.creationDate,
         dueDate: action.dueDate, status:action.status})
 
         return{ ...state , task:newTask }
+    }else if(action.type === 'DELETE_TASK'){
+        let newTasks = state.task.filter( element => {
+            return element.id !== action.id
+        })
+
+        return{
+            ...state,task:newTasks
+        }
     }
     return state;
 }

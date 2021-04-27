@@ -11,6 +11,13 @@ componentDidMount(){
 
 }
 
+deleteElement = ()=>{
+ const { id } = this.props;
+ this.props.deleteTask(id);
+ this.props.history.push('/')
+
+}
+
 render(){
     const { id } = this.state;
     const { task } = this.props;
@@ -26,7 +33,7 @@ render(){
                              <h4>Creation Date: {element.creationDate}</h4>
                              <h4>Due Date: {element.dueDate}</h4>
                              <h4>Status: {element.status}</h4>
-                             
+                             <button onClick={this.deleteElement}>Delete</button>
                              </div>
                          )
                      }//end of the if
@@ -44,4 +51,9 @@ const setPropsToMap = (state , ownProps)=>{
 
 }
 
-export default connect(setPropsToMap)(DetailTask);
+const setPropToDelete = (dispatch)=>{ 
+    return{
+        deleteTask: (id)=>{ dispatch({type:'DELETE_TASK' , id })}
+    }
+}
+export default connect(setPropsToMap , setPropToDelete)(DetailTask);
