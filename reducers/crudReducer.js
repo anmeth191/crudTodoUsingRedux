@@ -23,6 +23,13 @@ const crudReducer = (state = initialSate , action)=>{
         return{
             ...state,task:newTasks
         }
+    }else if(action.type === 'UPDATE_TASK'){
+        let updateTask = state.task.map( updateList =>{ return updateList.id !== action.id })
+       let returnTask = updateTask.concat({id:action.id , nameTask:action.nameTask , creationDate:action.creationDate , dueDate:action.dueDate , status:action.status});
+
+       return {
+           ...state, task:returnTask
+       }
     }
     return state;
 }

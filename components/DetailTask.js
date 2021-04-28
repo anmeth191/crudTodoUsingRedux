@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
+
+
 class DetailTask extends React.Component{
 
     state = {
@@ -18,6 +21,7 @@ deleteElement = ()=>{
 
 }
 
+
 render(){
     const { id } = this.state;
     const { task } = this.props;
@@ -34,6 +38,7 @@ render(){
                              <h4>Due Date: {element.dueDate}</h4>
                              <h4>Status: {element.status}</h4>
                              <button onClick={this.deleteElement}>Delete</button>
+                             <Link to={`/updatetask/${element.id}`}>Update</Link>
                              </div>
                          )
                      }//end of the if
