@@ -1,23 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import DisplayTasks from './DisplayTasks';
-import DetailTask from './DetailTask';
-import AddTask from './AddTask';
-import UpdateElement from './UpdateElement';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; //import react browser in order to do routing to the other components
+import DisplayTasks from './DisplayTasks';//display tasks is where all the task will be displayed in the home tab
+import DetailTask from './DetailTask';//detail task shows the extra information for tasks
+import AddTask from './AddTask';//this component add a new task in the reducer and render it 
+import UpdateElement from './UpdateElement';//this component update a task 
 class MainComponent extends React.Component{
 
 
     render(){
-
+//the return method basically is bringing the components and also the routings
         return(
         
-        <Router>
+        <Router> 
              <div>
-                 <Switch>
+                 <Switch> 
                  <Route exact path="/" component={DisplayTasks} />  
                  <Route path="/task/:id" component={DetailTask} />
                  <Route path="/addTask" component={AddTask} />
-                 <Route path="/updatetask/:id" component={UpdateElement}/>
+                 <Route path="/updatetask/:index" component={UpdateElement}/>
                  </Switch>   
            </div>
              </Router>
