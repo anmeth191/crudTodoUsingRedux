@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Icon from '@material-ui/core/Icon';
+
 class DisplayTasks extends React.Component{
 
     state={tasks:[]} //state for the tasks
@@ -13,14 +15,17 @@ render(){
     const { tasks } = this.state; // destructure the tasks from the state to loop the elements
     // the link button Add Task call the component addTask where you can submit a new Task
     return( 
-        <div> <Link to='/addTask'><button>Add Task </button></Link>
+        <div className="detailTask"> 
             {tasks.map( task => { //map the tasks and return the elements in a div
             return(
-                <div className="listTask" key={task.id}>
+                <div className="detailTask-container">
+                <div className="detailTask-container-task" key={task.id}>
                 <Link to={`/task/${task.id}`}>{task.nameTask/*this link sends as props the id to show details with component DetailTask*/ }</Link>  
                 </div>
-            )
-        })}</div>
+                </div>
+            )  
+        })} <Link to='/addTask'><Icon>star</Icon><button>Add Task </button></Link>
+        </div>
     )
 }//end of the render method
 }//end of the class Component

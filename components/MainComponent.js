@@ -4,6 +4,9 @@ import DisplayTasks from './DisplayTasks';//display tasks is where all the task 
 import DetailTask from './DetailTask';//detail task shows the extra information for tasks
 import AddTask from './AddTask';//this component add a new task in the reducer and render it 
 import UpdateElement from './UpdateElement';//this component update a task 
+import NavBar from './NavBar';
+
+
 class MainComponent extends React.Component{
 
 
@@ -12,7 +15,8 @@ class MainComponent extends React.Component{
         return(
         
         <Router> 
-             <div>
+             <div className="mainContainer">
+             <NavBar />
                  <Switch> 
                  <Route exact path="/" component={DisplayTasks} />  
                  <Route path="/task/:id" component={DetailTask} />
