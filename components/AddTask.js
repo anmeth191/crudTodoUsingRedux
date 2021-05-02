@@ -30,7 +30,7 @@ handleChange = (event)=>{
 
 render(){
 return(
-    <div>
+    <div className="addTask">
         <form onSubmit={this.handleSubmit}>
          <input type="text" value={this.state.task}  name="task" placeholder="Task name" onChange={this.handleChange} />
          <input type="text"  value={this.state.dueDate} name="dueDate" placeholder="MM/DD/YYYY" onChange={this.handleChange}/>

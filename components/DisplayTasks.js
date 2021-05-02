@@ -16,15 +16,16 @@ render(){
     // the link button Add Task call the component addTask where you can submit a new Task
     return( 
         <div className="detailTask"> 
+         <Link to='/addTask' className="detailTask-add"><Icon className="detailTask-add-link">add_circle</Icon></Link>
             {tasks.map( task => { //map the tasks and return the elements in a div
             return(
                 <div className="detailTask-container">
                 <div className="detailTask-container-task" key={task.id}>
-                <Link to={`/task/${task.id}`}>{task.nameTask/*this link sends as props the id to show details with component DetailTask*/ }</Link>  
+                <Link className="detailTask-container-task-link" to={`/task/${task.id}`}>{task.nameTask/*this link sends as props the id to show details with component DetailTask*/ }</Link>  
                 </div>
                 </div>
             )  
-        })} <Link to='/addTask'><Icon>star</Icon><button>Add Task </button></Link>
+        })}
         </div>
     )
 }//end of the render method
