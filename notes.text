@@ -1,0 +1,64 @@
+CSS GRID REMINDER
+
+<div class="container">
+  <div class="item--1 item">Header</div>
+  <div class="item--2 item">Small Box 1</div>
+  <div class="item--3 item">Small box 2</div>
+  <div class="item--4 item">Small box 3</div>
+  <div class="item--5 item">SideBar</div>
+  <div class="item--6 item">Main Content</div>
+  <div class="item--7 item">Footer</div>
+
+</div>
+
+.container{
+  width: 80%;
+  margin: 0 auto;
+  background: blue;
+  display: grid; //DISPLAY GRID SETS THE DISPLAY IN GRIDS
+  grid-template-rows: repeat(12, 1fr); YOU DEFINE HOE MANY ROWS YOU WNT ACROSS THE CONTAINER WRAPPER 
+  grid-template-columns: repeat(12 , 1fr); YOU DEFINE HOW MANY COLUMNS YOU WANT ACORSS THE CONTAINER WRAPPER
+  color: white;
+  grid-gap:15px; THIS IS THE GAP BETWEEN CELLS 
+  padding: 10px;
+}
+
+.item{
+  padding: 20px;
+   background: red; 
+}
+
+.item--1{
+  grid-column:1/13; // IN THIS CASE THIS ITEM START IN COLUMNS 1 AND ENDS IN COLUMNS 13
+  grid-row:1/2; THIS ONE YOU SPECIFY THAT START AT ROW 1 AND ENDS AT ROW 2
+}
+
+.item--2{
+  grid-column: 1 / 4; THERE OTHER METHOD CALLED SPAN THT YOU SAID 1 / SPAN 4 , WICH MEANS IS GOING TO GO ACROSS 4 COLUMNS
+  grid-row: 2 / 4; // THE SPAN ALSOP WORKS ON THE ROWS 
+}
+
+.item--3{
+  grid-column: 4/7;
+  grid-row: 2/4;
+}
+
+.item--4{
+  grid-column: 7/ 10;
+   grid-row: 2 / 4; 
+}
+
+.item--5{
+  grid-column: 10 / 13;
+  grid-row: 2/ 11;
+}
+
+.item--6{
+  grid-row: 4 / 11;
+  grid-column: 1 / 10;
+}
+
+.item--7{
+  grid-row: 11 / 13;
+  grid-column:1 / 13;
+}

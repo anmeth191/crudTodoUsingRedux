@@ -45,18 +45,18 @@ html{
     height: 100Vh;
     width: 100%;
     display: grid;
-    grid-template-areas: 'header content content content content content';
+    grid-template-areas: 'headerNav  headerNav headerNav content content content content content content content content content';
      
    // grid-gap:$paddingSmall;
 /*WORKING ON THE NAVBAR */
     & .navBarMain{
-        grid-area: header;
+        grid-area: headerNav;
         position: relative;
         width: 100%;
         background: $primaryColorDark;
 
         &-logo{
-            padding: $paddingMedium;
+           padding: $paddingMedium;
             background:$primaryColorDark;
             color: $primaryTextColor;
 
@@ -80,7 +80,7 @@ html{
                           font-size: $bigFont ;
                           color:$primaryTextColor;
                           text-decoration: none;
-                          padding: $paddingMedium;
+                         padding: $paddingMedium;
                           transition: 0.2s;
                           
                          
@@ -160,10 +160,12 @@ html{
 
 
 .addTask{
-
-     grid-area:content;
+     
+     margin: 0 auto;
+     grid-area: content;
     background: red;
-    width: 100%;
+    padding: $paddingLarge;  
+  
     
 }
 }
