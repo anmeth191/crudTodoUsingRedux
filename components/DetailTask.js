@@ -24,7 +24,7 @@ render(){
     const { task } = this.props;//destructure the task array from the props coming from setPropsToMatch and the reducer
    
     return(
-        <div>{   /*we loop thru task array*/ task.map((element,index) => {
+        <div className="detailTask item">{   /*we loop thru task array*/ task.map((element,index) => {
                      if(element.id === id){ //if the current element is equal to the id in the props then render all the information for that task
                          return(
                              <div key={element.id}>

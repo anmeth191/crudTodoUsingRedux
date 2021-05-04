@@ -10,9 +10,9 @@ $centerSides: 0 auto;
 $primaryColor:#1565c0;
 $primaryColorLight:#5e92f3;
 $primaryColorDark: #003c8f;
-$SecondaryColor:#e8eaf6;
+$SecondaryColor:#ede7f6;
 $SecondaryColorLight:#ffffff;
-$SecondaryColorDark: #b6b8c3;
+$SecondaryColorDark: #bbb5c3;
 $primaryTextColor: #ffffff;
 $SecondaryTextColor: #000000;
 
@@ -25,6 +25,11 @@ $SecondaryTextColor: #000000;
      top:20%;
      left: 50%;
      transform: translate(-50%);
+}
+
+@mixin componentSetup{
+    grid-row: row-start 1 / row-end 2;
+    grid-column: col-start 2 / col-end 5;
 }
 
 /*END OF THE MIXINS*/
@@ -41,135 +46,111 @@ html{
 }
 
 .mainContainer{
-   
-    height: 100Vh;
+    margin: 0 auto; 
+    //height: 100%;
     width: 100%;
     display: grid;
-    grid-template-areas: 'headerNav  headerNav headerNav content content content content content content content content content';
-     
+    grid-template-columns:  repeat(5 , [col-start] 1fr [col-end]);
+  //  grid-template-rows:   repeat(2 , [row-start] 1fr [row-end]);   
+    grid-auto-rows:  repeat(2 , [row-start] 1fr [row-end]);
+    background: $SecondaryColor;
+    grid-gap: 1rem;
    // grid-gap:$paddingSmall;
-/*WORKING ON THE NAVBAR */
-    & .navBarMain{
-        grid-area: headerNav;
-        position: relative;
-        width: 100%;
+
+& .navBarMain{
+    grid-row: row-start 1 / row-end 2;
+    grid-column: col-start 1 / col-end 1;
+    background-color: $primaryColor;
+    position: relative;    
+    
+    &-logo{
         background: $primaryColorDark;
+        padding: $paddingSmall;
+        text-align: center;
+        color: $primaryTextColor;
+    }
 
-        &-logo{
-           padding: $paddingMedium;
-            background:$primaryColorDark;
-            color: $primaryTextColor;
+    &-container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
 
-        }
+        &-elements{
 
-        &-container{
-            width: 100%;
-            
-           
-            position: absolute;
-            @include centerUpDown();
-            text-align: center;
-             
-            &-elements{
+            &-ul{
+               
+              &-li{
+                  list-style: none;
+                  &-link{
+                      color: $primaryTextColor;
+                      text-decoration: none;
+                      font-size: $regularFont;
+                      padding: $paddingSmall ;
+                      transition: 0.2s;
 
-                &-ul{
-                  &-li{
-                      list-style: none; 
-                      &-link{
-                          display: block;
-                          font-size: $bigFont ;
-                          color:$primaryTextColor;
-                          text-decoration: none;
-                         padding: $paddingMedium;
-                          transition: 0.2s;
-                          
-                         
-
-                          &:hover{
-                              background: $primaryColor;
-                              color: white;
-                          }
+                      &:hover{
+                          background: $primaryColorLight;
+                          font-size: $bigFont;
                       }
                   }
-                }//end of the ul
-            }//end of the elements
-        }
-
-    }
-/*END OF THE NAVBAR*/
-
-/*WORKING ON THE DETAIL TASK COMPONENT*/
-    & .detailTask{
-        grid-area: content;
-        background: linear-gradient(to right , rgba($primaryColor , 0.8 ), rgba($primaryColorDark , 1));
-        padding: $paddingLarge;  
-        position: relative;
-        
-        &-add{
-            display: block;
-             position: absolute;
-             right: 10%;
-             top: 1%;
-             transition: 0.2s;
-             z-index: 1;
-
-             
-            &-link{
-                display: block;
-                font-size: 8rem;
-                color: $primaryColor;
-                
-            }
-
-            &:hover{
-                transform: rotate(180deg) scale(1.1);
-                
-            }
-        }
-        
-        &-container{
-            margin: $centerSides;
-            width: 80%;
-            background: $SecondaryColorLight;
-            padding: $paddingMedium ;
-           
-
-            &-task{
-                //background: $SecondaryColorDark;
-                
-                border-bottom: 0.1rem solid $SecondaryColorDark;
-                transition: 0.2s;
-
-                &:hover{
-                    transform: translateY(-0.5rem);
-                    background: $SecondaryColor;
-                    border-radius: 1rem;
-                }
-
-                &-link{
-                    display: block;
-                    padding: $paddingMedium;
-                    text-transform: uppercase;
-                    color: $SecondaryTextColor;
-                    font-size: 1.5rem;
-                    text-decoration: none;
-                }
-            }
-        }
-    }
 
 
-.addTask{
-     
-     margin: 0 auto;
-     grid-area: content;
-    background: red;
-    padding: $paddingLarge;  
-  
+              }
+            }//end of the ul
+        }//end of the elements
+    }//end of the container
+
     
-}
-}
-/*END OF THE DETAIL TASK*/
 
-/*ADD TASK*/
-/*END OF ADD TASK*/
+
+}// end of the navbar style for now
+
+& .displayTask , & .detailTask , & .addTask , & .updateItem{
+  @include componentSetup();
+}
+
+& .displayTask{
+    width: 100%;
+    margin: 0 auto;
+    background: $SecondaryColorDark;
+    position: relative;
+    
+    &-add{
+        display: inline-block;
+        color: $primaryColor;
+        position: absolute;
+        left: 8%;
+             
+       &-link{
+           font-size:5rem ;
+       }
+    }
+
+    &-container{
+        
+        padding: $paddingMedium;
+        width: 80%;
+        margin: 2rem auto;
+        background: $SecondaryColor;
+
+       
+        &-task{
+            padding: $paddingSmall;
+          
+
+            &-link{
+                color: $SecondaryTextColor;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+        }
+    }//end of the container to display tasks
+}//end of the whole display task element
+
+& .detailTask{
+    height: 100vh;
+    background-color: red;
+}
+
+}//end of the main container

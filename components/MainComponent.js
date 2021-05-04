@@ -14,17 +14,20 @@ class MainComponent extends React.Component{
 //the return method basically is bringing the components and also the routings
         return(
         
-        <Router> 
+      
              <div className="mainContainer">
-             <NavBar />
+             
+               <Router> 
+               <NavBar />
                  <Switch> 
                  <Route exact path="/" component={DisplayTasks} />  
                  <Route path="/task/:id" component={DetailTask} />
                  <Route path="/addTask" component={AddTask} />
                  <Route path="/updatetask/:index" component={UpdateElement}/>
                  </Switch>   
+                 </Router>
            </div>
-             </Router>
+           
             
              )
 

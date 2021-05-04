@@ -42,7 +42,7 @@ class UpdateElement extends React.Component{
        
        
       return(
-          <div>
+          <div className="updateItem item">
               <form onSubmit={this.handleSubmit}>
                   <input type="text" placeholder={task[index].nameTask /*this line sets the old value so the user can have a reference*/ } name="task" onChange={this.handleEvent1}/>
                   <input type="text" placeholder={task[index].dueDate /*this line sets the old value so the user can have a reference*/} name="dueDate" onChange={this.handleEvent2}/>
