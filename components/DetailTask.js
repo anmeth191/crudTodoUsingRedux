@@ -27,14 +27,18 @@ render(){
         <div className="detailTask item">{   /*we loop thru task array*/ task.map((element,index) => {
                      if(element.id === id){ //if the current element is equal to the id in the props then render all the information for that task
                          return(
-                             <div key={element.id}>
-                             <h4>Task: {element.nameTask}</h4>
-                             <h4>Creation Date: {element.creationDate}</h4>
-                             <h4>Due Date: {element.dueDate}</h4>
-                             <h4>Status: {element.status}</h4>
+                             <div className="detailTask-container" key={element.id}>
+                             <div className="detailTask-container-content">
+                             <h4 className="detailTask-container-content-title">Task:</h4> <span className="detailTask-container-content-span"> {element.nameTask} </span>
+                             <h4 className="detailTask-container-content-title">Creation Date:</h4> <span className="detailTask-container-content-span" >{element.creationDate} </span>
+                             <h4 className="detailTask-container-content-title">Due Date:</h4><span className="detailTask-container-content-span"> {element.dueDate}</span>
+                             <h4 className="detailTask-container-content-title">Status:</h4><span className="detailTask-container-content-span"> {element.status} </span>
+                             </div>
+                             <div className="detailTask-container-action">
                              <button onClick={this.deleteElement}>Delete</button>
                              <Link to={`/updatetask/${index}`/*in this line a link is created in order to take you to the component UpdateElement and sendind the current index 
                             of the task*/}>Update</Link>
+                            </div>
                              </div>
                          )
                      }//end of the if

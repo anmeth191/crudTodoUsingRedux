@@ -16,16 +16,19 @@ class MainComponent extends React.Component{
         
       
              <div className="mainContainer">
-             
+                <div className="mainContainer-wrapper">
                <Router> 
+            
                <NavBar />
                  <Switch> 
                  <Route exact path="/" component={DisplayTasks} />  
                  <Route path="/task/:id" component={DetailTask} />
                  <Route path="/addTask" component={AddTask} />
                  <Route path="/updatetask/:index" component={UpdateElement}/>
-                 </Switch>   
+                 </Switch>
+               
                  </Router>
+                 </div>   
            </div>
            
             
