@@ -48,8 +48,8 @@ class UpdateElement extends React.Component{
                   <input type="text" placeholder={task[index].dueDate /*this line sets the old value so the user can have a reference*/} name="dueDate" onChange={this.handleEvent2}/>
                   <select  name="status" onChange={this.handleEvent3}>
                       <option value="progress">Progress</option>
-                      <option value="completed">Completed</option>
-                      <option value="pendient">Pendient</option>
+                      <option value="done">Done</option>
+                      <option value="pending">Pending</option>
                       </select>
                  <button type="submit">Update</button>
                   </form>

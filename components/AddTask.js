@@ -36,8 +36,8 @@ return(
          <input type="text"  value={this.state.dueDate} name="dueDate" placeholder="MM/DD/YYYY" onChange={this.handleChange}/>
          <select name="status" onChange={this.handleChange}>
          <option value="progress">Progress</option>
-         <option value="completed">Completed</option>
-         <option value="pendient">Pendient</option>
+         <option value="done">Done</option>
+         <option value="pending">Pending</option>
          </select>
          <button type="submit">Submit</button>
         </form>

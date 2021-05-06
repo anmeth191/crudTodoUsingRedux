@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
+import Icon from '@material-ui/core/Icon';
 
 
 class DetailTask extends React.Component{
@@ -28,15 +29,15 @@ render(){
                      if(element.id === id){ //if the current element is equal to the id in the props then render all the information for that task
                          return(
                              <div className="detailTask-container" key={element.id}>
-                             <div className="detailTask-container-content">
-                             <h4 className="detailTask-container-content-title">Task:</h4> <span className="detailTask-container-content-span"> {element.nameTask} </span>
-                             <h4 className="detailTask-container-content-title">Creation Date:</h4> <span className="detailTask-container-content-span" >{element.creationDate} </span>
-                             <h4 className="detailTask-container-content-title">Due Date:</h4><span className="detailTask-container-content-span"> {element.dueDate}</span>
-                             <h4 className="detailTask-container-content-title">Status:</h4><span className="detailTask-container-content-span"> {element.status} </span>
-                             </div>
+                             <ul className="detailTask-container-content">
+                             <li className="detailTask-container-content-title"> <Icon className="icon">task</Icon> Task: <span className="detailTask-container-content-span"> {element.nameTask} </span></li>
+                             <li className="detailTask-container-content-title"><Icon className="icon">today</Icon>Creation Date: <span className="detailTask-container-content-span" >{element.creationDate} </span></li>
+                             <li className="detailTask-container-content-title"><Icon className="icon">event</Icon>Due Date:<span className="detailTask-container-content-span"> {element.dueDate}</span></li>
+                             <li className="detailTask-container-content-title"><Icon className="icon">{element.status ==='pending' ? 'pending': element.status ==='progress' ?'loop': element.status === 'done'?'done':'none'}</Icon>Status:<span className="detailTask-container-content-span"> {element.status} </span></li>
+                             </ul>
                              <div className="detailTask-container-action">
-                             <button onClick={this.deleteElement}>Delete</button>
-                             <Link to={`/updatetask/${index}`/*in this line a link is created in order to take you to the component UpdateElement and sendind the current index 
+                             <button  className="detailTask-container-action-button" onClick={this.deleteElement}>Delete</button>
+                             <Link    className="detailTask-container-action-link"to={`/updatetask/${index}`/*in this line a link is created in order to take you to the component UpdateElement and sendind the current index 
                             of the task*/}>Update</Link>
                             </div>
                              </div>
