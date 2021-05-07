@@ -42,16 +42,18 @@ class UpdateElement extends React.Component{
        
        
       return(
-          <div className="updateItem item">
+          <div className="updateItem form">
               <form onSubmit={this.handleSubmit}>
-                  <input type="text" placeholder={task[index].nameTask /*this line sets the old value so the user can have a reference*/ } name="task" onChange={this.handleEvent1}/>
-                  <input type="text" placeholder={task[index].dueDate /*this line sets the old value so the user can have a reference*/} name="dueDate" onChange={this.handleEvent2}/>
-                  <select  name="status" onChange={this.handleEvent3}>
+                  <div className="container">
+                  <input required className="textField" type="text" placeholder={task[index].nameTask /*this line sets the old value so the user can have a reference*/ } name="task" onChange={this.handleEvent1}/>
+                  <input required className="textField"type="text" placeholder={task[index].dueDate /*this line sets the old value so the user can have a reference*/} name="dueDate" onChange={this.handleEvent2}/>
+                  <select className="status" name="status" onChange={this.handleEvent3}>
                       <option value="progress">Progress</option>
                       <option value="done">Done</option>
                       <option value="pending">Pending</option>
                       </select>
-                 <button type="submit">Update</button>
+                 <button className="button"type="submit">Update</button>
+                  </div>
                   </form>
           </div>
       )

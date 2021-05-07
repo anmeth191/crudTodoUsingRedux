@@ -27,6 +27,11 @@ $SecondaryTextColor: #000000;
      transform: translate(-50%);
 }
 
+@mixin centerMargin{
+    display: block;
+    margin: 1rem auto;
+}
+
 @mixin componentSetup{
     grid-row: 1 / -1;
     grid-column:  2 / 5;
@@ -107,10 +112,12 @@ html{
     }
      & .displayTask{
 
+
             display: grid;
             grid-template-rows: min-content;
             position: relative;
-       
+             animation-name: moveInLeft;
+             animation-duration: 0.5s;
             &-add{
                  position: fixed;
                  top: 15%;
@@ -169,6 +176,9 @@ html{
   
          
          &-container{
+            animation-name: moveInLeft;
+            animation-duration: 0.5s;
+            position: relative;
 
              display: grid;
              grid-template-rows: repeat(3 , minmax(10rem, min-content));
@@ -228,14 +238,106 @@ html{
                  &-link{
                      display: inline-block;
                      text-decoration: none;
-                     font-size: 1.4rem;
-                 }
-             }
+                     font-size: 1.4rem
+                                 
+      }
     }
-         
-     }
+  }     
+}
 
     }//end of the wrapper
 
+& .addTask{
+
+     &-form{
+         height: 100%;
+         width: 100%;
+         padding: $paddingLarge;
+         
+         &-container{
+          margin: 0 auto;
+          width: 80%;
+           
+          &-title{
+              display: inline-block;
+              font-weight: bold;
+          }
+
+              &-label{
+             font-size: 1.2rem;
+             color: $SecondaryTextColor;
+             font-weight: bold;
+           
+         
+            }
+        }//end of the container
+     }//end of the form
+}//end of the addTask    
+.form{
+
+    height: 100%;
+    width: 100%;
+    padding: $paddingLarge;
+
+    animation-name: moveInLeft;
+    animation-fill-mode: forwards;
+    animation-duration: 0.6s;
+    position: relative;
+
+}
+.button {
+    margin: 0 auto;
+    border: none;
+    background: $primaryColorDark;
+    padding: 1rem 2rem;
+    color: $primaryTextColor;
+    margin: 1.5rem 0;    
+    display: block;
+}
+
+.status{     
+        background: $SecondaryColorDark;
+        border: none;
+        padding: 0.6rem;
+        transition: 0.2s;
+        margin: 1.5rem 0;    
+        display: block; 
+}
+
+.textField{
+    width: 100%;
+    padding: 0.5rem ;
+    border: none;
+    outline: 0;
+    transition: 0.3s;
+    margin: 1.5rem 0;    
+    display: block;
+
+    &:focus{
+        background: $SecondaryColorDark;
+        border-bottom: solid 0.3rem $primaryColor ;
+    }
+
+}
+
+.container{
+    margin: 0 auto;
+    width: 80%;
+}
 
 }//end of the main container
+
+
+@keyframes moveInLeft {
+
+    0%{
+       left: 5%;
+       opacity: 0;
+    }
+
+    100%{
+       left: 0;
+       opacity: 1;
+    }
+    
+}

@@ -31,15 +31,24 @@ handleChange = (event)=>{
 render(){
 return(
     <div className="addTask item">
-        <form onSubmit={this.handleSubmit}>
-         <input type="text" value={this.state.task}  name="task" placeholder="Task name" onChange={this.handleChange} />
-         <input type="text"  value={this.state.dueDate} name="dueDate" placeholder="MM/DD/YYYY" onChange={this.handleChange}/>
-         <select name="status" onChange={this.handleChange}>
+        
+        <form className="addTask-form" onSubmit={this.handleSubmit}>
+        
+            <div className="addTask-form-container"> 
+            <h1 className="addTask-form-container-title">ADD TASK</h1>
+            
+         <input required className="addTask-form-container-textField textField " id="task" type="text" value={this.state.task}  name="task" placeholder="Task name" onChange={this.handleChange} />
+         <label className="addTask-form-container-label" for="task">Enter task</label>
+         <input required className="addTask-form-container-textField textField" id="dueDate" type="text"  value={this.state.dueDate} name="dueDate" placeholder="MM/DD/YYYY" onChange={this.handleChange}/>
+         <label  className="addTask-form-container-label"for="dueDate">Due Date</label>
+         <select className="addTask-form-container-select status" id="status" name="status" onChange={this.handleChange}>
          <option value="progress">Progress</option>
          <option value="done">Done</option>
          <option value="pending">Pending</option>
          </select>
-         <button type="submit">Submit</button>
+      
+        <button className="addTask-form-container-button button" type="submit">Submit</button>
+        </div>
         </form>
     </div>
 )
